@@ -47,9 +47,9 @@ export async function POST(req: NextRequest) {
         },
         auto_return: "approved",
         back_urls: {
-          success: `${process.env.NEXT_PUBLIC_BASE_URL}/api/mercado-pago/success`,
-          failure: `${process.env.NEXT_PUBLIC_BASE_URL}/api/mercado-pago/failure`,
-          pending: `${process.env.NEXT_PUBLIC_BASE_URL}/api/mercado-pago/pending`,
+          success: `${req.headers.get("origin")}/api/mercado-pago/success`,
+          failure: `${req.headers.get("origin")}/api/mercado-pago/failure`,
+          pending: `${req.headers.get("origin")}/api/mercado-pago/pending`,
         },
       },
     });
